@@ -164,7 +164,7 @@ void MainWindow::m_generateFrame(int rows, int cols)
     QGridLayout *m_FrameLayout = ui->gridLayout;
     QString m_cellName;
     QSizePolicy m_cellSizePolicy;
-    QSize m_cellSize(18,18);	// Arbitrarily selected as a decent minimum ("quarter-inch" @ 72 ppi, less @ 96 ppi or higher resolutions)
+    QSize m_cellSize(30,30);	// Arbitrarily selected as a decent minimum ("quarter-inch" @ 72 ppi, less @ 96 ppi or higher resolutions) originally 18, 18
 
     // Configure the size policy that every cell widget will use
     m_cellSizePolicy.setHorizontalPolicy(QSizePolicy::Fixed);

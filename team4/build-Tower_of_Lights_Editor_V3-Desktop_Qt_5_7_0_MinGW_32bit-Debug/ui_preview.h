@@ -46,7 +46,7 @@ public:
             Preview->setObjectName(QStringLiteral("Preview"));
         Preview->resize(280, 715);
         Preview->setMinimumSize(QSize(280, 715));
-        Preview->setMaximumSize(QSize(280, 715));
+        Preview->setMaximumSize(QSize(280, 1000));
         frame = new QFrame(Preview);
         frame->setObjectName(QStringLiteral("frame"));
         frame->setGeometry(QRect(10, 10, 260, 620));

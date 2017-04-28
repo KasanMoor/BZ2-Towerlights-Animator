@@ -25,7 +25,7 @@ Preview::Preview(TanFile project, QWidget *parent) :
     QGridLayout *m_FrameLayout = ui->gridLayout;
     //QString m_cellName;
     QSizePolicy m_cellSizePolicy;
-    QSize m_cellSize(38,38);
+    QSize m_cellSize(38,38); //originally 38, 38
 
     // Configure the size policy that every cell widget will use
     m_cellSizePolicy.setHorizontalPolicy(QSizePolicy::Fixed);
