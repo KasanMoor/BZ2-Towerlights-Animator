@@ -5,6 +5,9 @@
 #include <QString>
 #include <QTime>
 #include <QCoreApplication>
+#include <QDebug>
+#include <QUrl>
+#include <QMediaPlayer>
 #include "TanFile.h"
 #include "thread.h"
 
@@ -32,9 +35,12 @@ private slots:
 private:
     Ui::Preview *ui;
     TanFile file;
+    QMediaPlayer *player;
     bool playing;
     myThread* t;
     void updateGUI();
+    void playSong();
+    void reject();
 };
 
 #endif // PREVIEW_H

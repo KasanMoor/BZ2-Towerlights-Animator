@@ -97,7 +97,13 @@ void TanFile::setAudioFile(QString input)   //set audio file name
 
 QString TanFile::getAudioFile()		//get audio file name
 {
-		return m_filename_wav;
+    return m_filename_wav;
+}
+
+qint64 TanFile::getPosition()
+{
+    TanFrame *frame = *currFrame;
+    return frame->frame_start;
 }
 
 

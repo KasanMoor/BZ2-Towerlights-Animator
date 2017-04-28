@@ -1,6 +1,7 @@
 #include "preview.h"
 #include "ui_preview.h"
 
+
 Preview::Preview(TanFile project, QWidget *parent) :
     QDialog(parent),
     ui(new Ui::Preview)
@@ -16,6 +17,9 @@ Preview::Preview(TanFile project, QWidget *parent) :
     connect(t, SIGNAL(countdownDone()), this, SLOT(next_frame()));
 
     playing = false;
+
+    player = new QMediaPlayer();
+    player->setMedia(QUrl(file.getAudioFile()));
 
     //QFrame *m_Frame = ui->frame;
     QGridLayout *m_FrameLayout = ui->gridLayout;
@@ -59,7 +63,13 @@ Preview::~Preview()
 
 void Preview::on_pushButton_close_clicked()
 {
+    player->stop();
     close();
+}
+
+void Preview::playSong(){
+
+    player->play();
 }
 
 void Preview::on_pushButton_play_clicked()
@@ -87,13 +97,19 @@ void Preview::on_pushButton_play_clicked()
         }
         t->setMilliseconds((*file.currFrame)->frame_length);
         t->start();
+
+        playSong();
     }
 }
+
+
 
 void Preview::on_pushButton_back1_clicked()
 {
     if (file.currFrame == file.m_frames.begin()) return;
+
     file.currFrame--;
+    player->setPosition(file.getPosition());
     updateGUI();
 }
 
@@ -103,6 +119,8 @@ void Preview::on_pushButton_back10_clicked()
     if ((file.currFrame-file.m_frames.begin()) < 10)
         file.currFrame = file.m_frames.begin();
     else file.currFrame -= 10;
+
+    player->setPosition(file.getPosition());
     updateGUI();
 }
 
@@ -110,6 +128,7 @@ void Preview::on_pushButton_forward1_clicked()
 {
     if (file.currFrame == (file.m_frames.end()-1)) return;
     file.currFrame++;
+    player->setPosition(file.getPosition());
     updateGUI();
 }
 
@@ -119,6 +138,7 @@ void Preview::on_pushButton_forward10_clicked()
     if ((file.currFrame-file.m_frames.begin()) > (file.m_frames.size()-11))
         file.currFrame = (file.m_frames.end()-1);
     else file.currFrame += 10;
+    player->setPosition(file.getPosition());
     updateGUI();
 }
 
@@ -159,6 +179,7 @@ void Preview::updateGUI()
             ui->pushButton_forward10->setEnabled(true);
         }
         ui->pushButton_play->setText("Play");
+        player->pause();
     }
     this->setWindowTitle("Frame " + QString::number(file.currFrame+1-file.m_frames.begin()));
     ui->label_start->setText(QString::number((*file.currFrame)->frame_start) + " ms");
@@ -180,4 +201,10 @@ void Preview::next_frame()
         t->setMilliseconds((*file.currFrame)->frame_length);
         t->start();
     }
+}
+
+void Preview::reject()
+{
+    player->stop();
+    QDialog::reject();
 }

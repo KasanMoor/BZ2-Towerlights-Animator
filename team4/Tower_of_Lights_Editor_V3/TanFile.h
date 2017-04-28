@@ -65,6 +65,7 @@ public:
 
     void setAudioFile(QString);
     QString getAudioFile();
+    qint64 getPosition();
 
     void setLeftColor(int,int,int);
     void setLeftColor(QColor);
