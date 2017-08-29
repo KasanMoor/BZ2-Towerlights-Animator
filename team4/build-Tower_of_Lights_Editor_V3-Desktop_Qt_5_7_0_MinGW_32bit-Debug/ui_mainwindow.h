@@ -74,6 +74,7 @@ public:
     QPushButton *pushButton_downright;
     QPushButton *pushButton_upleft;
     QPushButton *pushButton_downleft;
+    QPushButton *newSquad;
     QScrollArea *scrollArea_2;
     QWidget *scrollAreaWidgetContents_3;
     QHBoxLayout *horizontalLayout;
@@ -108,7 +109,7 @@ public:
         scrollArea->setWidgetResizable(true);
         scrollAreaWidgetContents = new QWidget();
         scrollAreaWidgetContents->setObjectName(QStringLiteral("scrollAreaWidgetContents"));
-        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 742, 497));
+        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 742, 502));
         horizontalLayout_3 = new QHBoxLayout(scrollAreaWidgetContents);
         horizontalLayout_3->setSpacing(6);
         horizontalLayout_3->setContentsMargins(11, 11, 11, 11);
@@ -124,7 +125,7 @@ public:
         scrollArea_3->setWidgetResizable(true);
         scrollAreaWidgetContents_4 = new QWidget();
         scrollAreaWidgetContents_4->setObjectName(QStringLiteral("scrollAreaWidgetContents_4"));
-        scrollAreaWidgetContents_4->setGeometry(QRect(0, 0, 198, 471));
+        scrollAreaWidgetContents_4->setGeometry(QRect(0, 0, 198, 482));
         pushButton_l = new QPushButton(scrollAreaWidgetContents_4);
         pushButton_l->setObjectName(QStringLiteral("pushButton_l"));
         pushButton_l->setGeometry(QRect(10, 30, 81, 81));
@@ -201,7 +202,7 @@ public:
         scrollArea_4->setWidgetResizable(true);
         scrollAreaWidgetContents_5 = new QWidget();
         scrollAreaWidgetContents_5->setObjectName(QStringLiteral("scrollAreaWidgetContents_5"));
-        scrollAreaWidgetContents_5->setGeometry(QRect(0, 0, 294, 469));
+        scrollAreaWidgetContents_5->setGeometry(QRect(0, 0, 308, 480));
         gridLayout_4 = new QGridLayout(scrollAreaWidgetContents_5);
         gridLayout_4->setSpacing(6);
         gridLayout_4->setContentsMargins(11, 11, 11, 11);
@@ -224,7 +225,7 @@ public:
         scrollArea_5->setWidgetResizable(true);
         scrollAreaWidgetContents_6 = new QWidget();
         scrollAreaWidgetContents_6->setObjectName(QStringLiteral("scrollAreaWidgetContents_6"));
-        scrollAreaWidgetContents_6->setGeometry(QRect(0, 0, 198, 471));
+        scrollAreaWidgetContents_6->setGeometry(QRect(0, 0, 198, 482));
         label_5 = new QLabel(scrollAreaWidgetContents_6);
         label_5->setObjectName(QStringLiteral("label_5"));
         label_5->setGeometry(QRect(50, 327, 101, 21));
@@ -326,6 +327,9 @@ public:
         icon7.addFile(QStringLiteral(":/resources/dark_arrows_downleft.png"), QSize(), QIcon::Normal, QIcon::Off);
         pushButton_downleft->setIcon(icon7);
         pushButton_downleft->setIconSize(QSize(24, 24));
+        newSquad = new QPushButton(scrollAreaWidgetContents_6);
+        newSquad->setObjectName(QStringLiteral("newSquad"));
+        newSquad->setGeometry(QRect(10, 350, 21, 21));
         scrollArea_5->setWidget(scrollAreaWidgetContents_6);
 
         horizontalLayout_3->addWidget(scrollArea_5);
@@ -366,7 +370,7 @@ public:
         MainWindow->setStatusBar(statusBar);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 754, 22));
+        menuBar->setGeometry(QRect(0, 0, 754, 20));
         MainWindow->setMenuBar(menuBar);
 
         retranslateUi(MainWindow);
@@ -408,6 +412,7 @@ public:
         pushButton_downright->setText(QString());
         pushButton_upleft->setText(QString());
         pushButton_downleft->setText(QString());
+        newSquad->setText(QApplication::translate("MainWindow", "newSquad", 0));
     } // retranslateUi
 
 };

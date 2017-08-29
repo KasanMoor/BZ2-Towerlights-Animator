@@ -25,7 +25,8 @@ SOURCES += main.cpp\
     preview.cpp \
     thread.cpp \
     infodialog.cpp \
-    letters.cpp
+    letters.cpp \
+    squad.cpp
 
 HEADERS  += mainwindow.h \
     cell.h \
@@ -38,7 +39,8 @@ HEADERS  += mainwindow.h \
     preview.h \
     thread.h \
     infodialog.h \
-    letters.h
+    letters.h \
+    squad.h
 
 FORMS    += mainwindow.ui \
     lettereffectdialog.ui \

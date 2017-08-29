@@ -65,7 +65,7 @@
          <x>0</x>
          <y>0</y>
          <width>742</width>
-         <height>497</height>
+         <height>502</height>
         </rect>
        </property>
        <layout class="QHBoxLayout" name="horizontalLayout_3">
@@ -92,7 +92,7 @@
              <x>0</x>
              <y>0</y>
              <width>198</width>
-             <height>471</height>
+             <height>482</height>
             </rect>
            </property>
            <widget class="QPushButton" name="pushButton_l">
@@ -364,8 +364,8 @@ border-radius: 4px;</string>
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>294</width>
-             <height>469</height>
+             <width>308</width>
+             <height>480</height>
             </rect>
            </property>
            <layout class="QGridLayout" name="gridLayout_4">
@@ -399,7 +399,7 @@ border-radius: 4px;</string>
              <x>0</x>
              <y>0</y>
              <width>198</width>
-             <height>471</height>
+             <height>482</height>
             </rect>
            </property>
            <widget class="QLabel" name="label_5">
@@ -749,6 +749,19 @@ border-radius: 4px;</string>
              </size>
             </property>
            </widget>
+           <widget class="QPushButton" name="newSquad">
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>350</y>
+              <width>21</width>
+              <height>21</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>newSquad</string>
+            </property>
+           </widget>
           </widget>
          </widget>
         </item>
@@ -803,7 +816,7 @@ border-radius: 4px;</string>
      <x>0</x>
      <y>0</y>
      <width>754</width>
-     <height>22</height>
+     <height>20</height>
     </rect>
    </property>
   </widget>

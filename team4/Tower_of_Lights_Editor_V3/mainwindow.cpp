@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "squad.h"
 #include <QtWidgets>
 #include <QColorDialog>
 #include <stdio.h>
@@ -21,7 +22,7 @@ MainWindow::MainWindow(QWidget *parent) :
     project.setLeftColor(255,255,255);
     project.setRightColor(255,255,255);
     updateGUIColorButtons();
-    on_change_frame();
+//    on_change_frame();
     nothingToSave = true;
     wrap = true;
 }
@@ -157,42 +158,55 @@ void MainWindow::saveAs()
     }
 }
 
-// Create the grid of cell widgets
 void MainWindow::m_generateFrame(int rows, int cols)
 {
-    int i = 0, j = 0;
-    QGridLayout *m_FrameLayout = ui->gridLayout;
-    QString m_cellName;
-    QSizePolicy m_cellSizePolicy;
-    QSize m_cellSize(30,30);	// Arbitrarily selected as a decent minimum ("quarter-inch" @ 72 ppi, less @ 96 ppi or higher resolutions) originally 18, 18
-
-    // Configure the size policy that every cell widget will use
-    m_cellSizePolicy.setHorizontalPolicy(QSizePolicy::Fixed);
-    m_cellSizePolicy.setHorizontalStretch(1);
-    m_cellSizePolicy.setVerticalPolicy(QSizePolicy::Fixed);
-    m_cellSizePolicy.setVerticalStretch(1);
-    m_cellSizePolicy.setHeightForWidth(true);
-
-    for (i=0; i<rows; i++)
-    {
-        for (j=0; j<cols; j++)
-        {
-            // Generate the name for each cell, based on rows and cols
-            m_cellName = "cell" + (QString("%1").arg((i*cols + j), 3, 10, QChar('0')));
-            CellWidget *m_cellWidget = new CellWidget(m_cellName, i, j);
-            m_cellWidget->setMinimumSize(m_cellSize);
-            m_cellWidget->setSizePolicy(m_cellSizePolicy);
-
-            // Adding cell widget to the frame's gridLayout
-            m_FrameLayout->addWidget(m_cellWidget, i, j);
-            m_cellWidget->show();
-            // Connecting each cell's signals to appropriate generic slots
-            m_connectCellSignals(m_cellWidget);
-            m_FrameLayout->update();
-        }
-    }
-    appendThumbnail(*project.currFrame);
+        Squad *squad = new Squad();
+        ui->gridLayout->addWidget(squad, 0, 0);
+        squad->show();
+        ui->gridLayout->update();
 }
+
+//// Create the grid of cell widgets
+//void MainWindow::m_generateFrame(int rows, int cols)
+//{
+//    int i = 0, j = 0;
+//    QGridLayout *m_FrameLayout = ui->gridLayout;
+//    QString m_cellName;
+//    QSizePolicy m_cellSizePolicy;
+//    QSize m_cellSize(18,18);	// Arbitrarily selected as a decent minimum ("quarter-inch" @ 72 ppi, less @ 96 ppi or higher resolutions) originally 18, 18
+
+//    // Configure the size policy that every cell widget will use
+//    m_cellSizePolicy.setHorizontalPolicy(QSizePolicy::Fixed);
+//    m_cellSizePolicy.setHorizontalStretch(1);
+//    m_cellSizePolicy.setVerticalPolicy(QSizePolicy::Fixed);
+//    m_cellSizePolicy.setVerticalStretch(1);
+//    m_cellSizePolicy.setHeightForWidth(true);
+
+//    Squad *squad = new Squad();
+//    m_FrameLayout->addWidget(squad);
+//    squad->show();
+//    m_FrameLayout->update();
+
+////    for (i=0; i<rows; i++)
+////    {
+////        for (j=0; j<cols; j++)
+////        {
+////            // Generate the name for each cell, based on rows and cols
+////            m_cellName = "cell" + (QString("%1").arg((i*cols + j), 3, 10, QChar('0')));
+////            CellWidget *m_cellWidget = new CellWidget(m_cellName, i, j);
+////            m_cellWidget->setMinimumSize(m_cellSize);
+////            m_cellWidget->setSizePolicy(m_cellSizePolicy);
+
+////            // Adding cell widget to the frame's gridLayout
+////            m_FrameLayout->addWidget(m_cellWidget, i, j);
+////            m_cellWidget->show();
+////            // Connecting each cell's signals to appropriate generic slots
+////            m_connectCellSignals(m_cellWidget);
+////            m_FrameLayout->update();
+////        }
+////    }
+////    appendThumbnail(*project.currFrame);
+//}
 
 // Destroy the grid of cell widgets
 void MainWindow::m_destroyFrame(int rows, int cols)
@@ -374,6 +388,11 @@ void MainWindow::on_pushButton_l_clicked()
         updateGUIColorButtons();
     }
     nothingToSave = false;
+}
+
+void MainWindow::on_newSquad_clicked()
+{
+    Squad *squad = new Squad();
 }
 
 void MainWindow::generateThumbnail(TanFrame* ptr)

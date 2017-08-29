@@ -13,6 +13,7 @@ INPUT(
 ./release\thread.o
 ./release\infodialog.o
 ./release\letters.o
+./release\squad.o
 ./release\qrc_resources.o
 ./release\moc_mainwindow.o
 ./release\moc_cell.o
@@ -22,4 +23,5 @@ INPUT(
 ./release\moc_preview.o
 ./release\moc_thread.o
 ./release\moc_infodialog.o
+./release\moc_squad.o
 );

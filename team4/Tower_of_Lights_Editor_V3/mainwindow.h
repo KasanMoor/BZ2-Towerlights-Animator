@@ -39,7 +39,10 @@ public:
     TanFile project;   //the object that MainWindow will use for data storage
     ~MainWindow();
 
+
 private slots:
+
+    void on_newSquad_clicked();
 
     void openFile();
 

@@ -13,6 +13,7 @@ INPUT(
 ./debug\thread.o
 ./debug\infodialog.o
 ./debug\letters.o
+./debug\squad.o
 ./debug\qrc_resources.o
 ./debug\moc_mainwindow.o
 ./debug\moc_cell.o
@@ -22,4 +23,5 @@ INPUT(
 ./debug\moc_preview.o
 ./debug\moc_thread.o
 ./debug\moc_infodialog.o
+./debug\moc_squad.o
 );
