@@ -13,7 +13,7 @@
 #include <QScrollArea>
 #include <QTime>
 #include <QCoreApplication>
-#include "tanfile.h"
+#include "TanFile.h"
 
 class CellWidget : public QWidget {
 

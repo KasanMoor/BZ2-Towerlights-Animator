@@ -1,4 +1,4 @@
-#include "tanfile.h"
+#include "TanFile.h"
 
 TanFile::TanFile() {
     m_filename_tan = "";

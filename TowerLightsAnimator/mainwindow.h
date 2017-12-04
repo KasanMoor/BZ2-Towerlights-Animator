@@ -11,7 +11,7 @@
 #include <QColor>
 #include <QTime>         // for holding time
 #include <QLinkedList>
-#include "tanfile.h"
+//#include "tanfile.h"
 #include "config.h"
 #include "cell.h"
 #include "effect.h" //for storing effects

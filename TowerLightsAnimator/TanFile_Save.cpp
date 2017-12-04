@@ -1,4 +1,4 @@
-#include "tanfile.h"
+#include "TanFile.h"
 #include <QFile>
 #include <QTextStream>
 #include <QDebug>

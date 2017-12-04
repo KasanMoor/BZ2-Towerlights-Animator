@@ -30,7 +30,7 @@ SOURCES += main.cpp\
 HEADERS  += mainwindow.h \
     cell.h \
     config.h \
-    tanfile.h \
+    TanFile.h \
     effect.h \
     lettereffectdialog.h \
     symboleffectdialog.h \

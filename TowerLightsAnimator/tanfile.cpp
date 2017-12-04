@@ -1,4 +1,4 @@
-#include "tanfile.h"
+#include "TanFile.h"
 
 void TanFile::newFrame()
 {
