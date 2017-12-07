@@ -86,16 +86,16 @@ TanFile* MainWindow::load(QString fileName)
     /*************************************************************************************/
 
     //error checking the tanfile frames
-    if (((contents.size()-5) % 21)!=0)
-    {
-        QMessageBox::information(0,"error","frames corrupt");
-        return NULL;
-    }
-    else if (num_frames!=((contents.size() - 5) / 21))
-    {
-        QMessageBox::information(0,"error","specified number of frames does not equal actual number of frames");
-        num_frames = (contents.size() - 5) / 21;
-    }
+//    if (((contents.size()-5) % 21)!=0)
+//    {
+//        QMessageBox::information(0,"error","frames corrupt");
+//        return NULL;
+//    }
+//    else if (num_frames!=((contents.size() - 5) / 21))
+//    {
+//        QMessageBox::information(0,"error","specified number of frames does not equal actual number of frames");
+//        num_frames = (contents.size() - 5) / 21;
+//    }
 
     for (int k=0;k<num_frames*21;k+=21) //where k is the fileoffset
     {
@@ -107,16 +107,16 @@ TanFile* MainWindow::load(QString fileName)
         //calculate frame duration
 
         hype.clear();   //clear QStringList
-        for (int i=0;i<TAN_DEFAULT_ROWS;i++) //the increment for rows
+        for (int i=0;i<TAN_DEFAULT_ROWS-10;i++) //the increment for rows
         {
             hype = contents[i+k+6].split(QRegExp(" "),QString::SkipEmptyParts); //delimit by spaces for row
 
-            if (hype.size()!=TAN_DEFAULT_COLS*3)
-            {
-                QMessageBox::information(0,"error","frame contains invalid number of rgb values");
-                return NULL;
-            }
-            for (int j=0,g=0;j<TAN_DEFAULT_COLS*3;j+=3,g++) //the increment for columns
+//            if (hype.size()!=TAN_DEFAULT_COLS*3)
+//            {
+//                QMessageBox::information(0,"error","frame contains invalid number of rgb values");
+//                return NULL;
+//            }
+            for (int j=0,g=0;j<(TAN_DEFAULT_COLS-8)*3;j+=3,g++) //the increment for columns
             {
                 rgb[0] = hype[j].toInt();
                 rgb[1] = hype[j+1].toInt();
@@ -126,7 +126,7 @@ TanFile* MainWindow::load(QString fileName)
                     QMessageBox::information(0,"error","frame contains nonvalid rgb colors");
                     return NULL;
                 }
-                frame->pixels[g][i].setRgb(rgb[0],rgb[1],rgb[2],255);
+                frame->pixels[g+4][i+5].setRgb(rgb[0],rgb[1],rgb[2],255);
             }
         }
         //got a frame!

@@ -95,32 +95,33 @@ bool TanFile::SaveAs(const QString& p_filename) {
         // Frames
         for (int i = 0; i < m_frames.size(); i++) {
             file << (*(m_frames.begin()+i))->frame_start << "\r\n";
-            for (int y = 0; y < TAN_DEFAULT_ROWS; y++) {
-                for (int x = 0; x < TAN_DEFAULT_COLS-1; x++) {
+            for (int y = 5; y < TAN_DEFAULT_ROWS-5; y++) {
+                for (int x = 4; x < TAN_DEFAULT_COLS-4; x++) {
                     file << (*(m_frames.begin()+i))->pixels[x][y].red() << " ";
                     file << (*(m_frames.begin()+i))->pixels[x][y].green() << " ";
                     file << (*(m_frames.begin()+i))->pixels[x][y].blue() << " ";
                 }
-                file << (*(m_frames.begin()+i))->pixels[TAN_DEFAULT_COLS-1][y].red() << " ";
-                file << (*(m_frames.begin()+i))->pixels[TAN_DEFAULT_COLS-1][y].green() << " ";
-                file << (*(m_frames.begin()+i))->pixels[TAN_DEFAULT_COLS-1][y].blue() << "\r\n";
+//                file << (*(m_frames.begin()+i))->pixels[TAN_DEFAULT_COLS-1][y].red() << " ";
+//                file << (*(m_frames.begin()+i))->pixels[TAN_DEFAULT_COLS-1][y].green() << " ";
+//                file << (*(m_frames.begin()+i))->pixels[TAN_DEFAULT_COLS-1][y].blue() << "\r\n";
+                file << "\r\n";
             }
         }
 
-        //save a blank frame if necessary
-        if (flag)
-        {
-            //write the start time of the blank frame
-            file << (*(m_frames.end()-1))->frame_start + (*(m_frames.end()-1))->frame_length << "\r\n";
-            //qDebug() << (*(m_frames.end()))->frame_start << (*(m_frames.end()))->frame_length;
+//        //save a blank frame if necessary
+//        if (flag)
+//        {
+//            //write the start time of the blank frame
+//            file << (*(m_frames.end()-1))->frame_start + (*(m_frames.end()-1))->frame_length << "\r\n";
+//            //qDebug() << (*(m_frames.end()))->frame_start << (*(m_frames.end()))->frame_length;
 
-            //write the blank frame RGB values
-            for (int y = 0; y < TAN_DEFAULT_ROWS; y++) {
-                for (int x = 0; x < TAN_DEFAULT_COLS-1; x++)
-                    file << 0 << " "<< 0 << " "<< 0 << " ";
-                file << 0 << " "<< 0 << " "<< 0 << "\r\n";
-            }
-        }
+//            //write the blank frame RGB values
+//            for (int y = 0; y < TAN_DEFAULT_ROWS; y++) {
+//                for (int x = 0; x < TAN_DEFAULT_COLS-1; x++)
+//                    file << 0 << " "<< 0 << " "<< 0 << " ";
+//                file << 0 << " "<< 0 << " "<< 0 << "\r\n";
+//            }
+//        }
 
         real_file.close();
         m_filename_tan = p_filename;//in case user saved as new filename, update current filename
