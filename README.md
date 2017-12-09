@@ -1,10 +1,4 @@
-# Tower Animator
-![alt text](https://i.ytimg.com/vi/hESMhgDnk4E/maxresdefault.jpg "Logo Title Text 1")
 
-This is our project for cs383. We have been assigned to create animation software for the popular University of Idaho Tower Light Show. Our Goal for this project is to improve upon the current Tower Animator that is in use.
-
-Here is an example of the Tower Light Show:
-https://www.youtube.com/watch?v=hESMhgDnk4E
 
 ## Developer Info ##
 This project is built using QT 5.7
